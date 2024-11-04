@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: escola
+
+server:
+  port: 8083
