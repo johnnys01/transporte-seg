@@ -3,7 +3,7 @@
 pipelina{
     agent none
     stages{
-        stage{
+        stage('Build'){
             agent{
                 docker{ image 'maven'}
             }
