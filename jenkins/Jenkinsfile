@@ -1,13 +1,21 @@
-#!/usr/bin/env groovy
 pipeline{
-    agent none
-    stages{
-        stage('Build'){
-            agent{
-                docker { image 'maven'}
+    agent any
+    stages {
+        stage('Build Docker Image') {
+            steps {
+                sh 'echo "Executando o comando Docker Build"'
             }
-            steps{
-                sh "mvn package -Dmaven.test.skip=true"
+        }
+
+        stage('Push Docker Image') {
+            steps {
+                sh 'echo "Executando o comando Docker Push"'
+            }
+        }
+
+        stage('Deploy no kubernetes') {
+            steps {
+                sh 'echo "Executando o comando Kiberclt apply"'
             }
         }
     }
