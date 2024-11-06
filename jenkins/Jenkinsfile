@@ -4,7 +4,7 @@ pipeline{
         stage('Build Docker Image') {
             steps {
                 script {
-                    dockerapp = docker.build("johnnysdocker/guia-jenkins:${env.BUID_ID}", '-f ./Dockerfile ./')
+                    dockerapp = docker.build("johnnys2160/guia-jenkins:${env.BUID_ID}", '-f ./Dockerfile ./')
                 }
             }
         }
