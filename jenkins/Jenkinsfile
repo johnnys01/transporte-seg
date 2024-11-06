@@ -9,13 +9,15 @@ pipeline{
             }
         }
 
-//         stage('Push Docker Image') {
-//             steps {
-//                 script {
-//                     docker.withregistry('https://registry.hub.docker.com', 'dockerhub')
-//                 }
-//             }
-//         }
+        stage('Push Docker Image') {
+            steps {
+                script {
+                    docker.withregistry('https://registry.hub.docker.com', 'johnnys2160')
+                    dockerapp.push('latest')
+                    dockerapp.push("${env.BUID_ID}")
+                }
+            }
+        }
 
         stage('Deploy no kubernetes') {
             steps {
