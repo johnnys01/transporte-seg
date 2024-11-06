@@ -4,7 +4,7 @@ pipeline{
         stage('Build Docker Image') {
             steps {
                 script {
-                    dockerapp = docker.build("johnnys2160/guia-jenkins:${env.BUID_ID}", '-f ./Dockerfile ./')
+                    dockerapp = docker.build("johnnys2160/guia-jenkins:${env.BUILD_ID}", '-f ./Dockerfile ./')
                 }
             }
         }
@@ -14,7 +14,7 @@ pipeline{
                 script {
                     docker.withRegistry('https://registry.hub.docker.com', 'johnnys2160') {
                         dockerapp.push('latest')
-                        dockerapp.push("${env.BUID_ID}")
+                        dockerapp.push("${env.BUILD_ID}")
                     }
                 }
             }
