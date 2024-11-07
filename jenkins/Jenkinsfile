@@ -22,7 +22,7 @@ pipeline{
 
         stage('Deploy no kubernetes') {
             steps {
-                sh 'echo "Executando o comando Kiberclt apply"'
+                sh 'echo "Executando o comando Kibercltb apply"'
             }
         }
     }
