@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: escola
+  labels:
+    app: escola
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: escola
+  template:
+    metadata:
+      labels:
+        app: escola
+    spec:
+      containers:
+        - name: escola
+          image: app/app:2
+          ports:
+            - containerPort: 8080
